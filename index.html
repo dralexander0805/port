@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            background: #ddd;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .name {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .about {
+            max-width: 600px;
+            margin-top: 10px;
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+        .socials {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+        }
+        .socials a {
+            margin: 10px 0;
+            text-decoration: none;
+        }
+        .socials img {
+            width: 40px;
+            height: 23px;
+            transition: transform 0.3s;
+        }
+        .socials img:hover {
+            transform: scale(1.1);
+        }
+        .git img {
+        width: 30px;
+        height: 30px;
+     transform: translateX(10%);
+        }
+    </style>
+</head>
+<body>
+    <audio id="hoverSound" src="https://github.com/dralexander0805/port/raw/refs/heads/main/ui-positive-click-gfx-sounds-1-00-00.mp3"></audio>
+    <div class="container">
+        <div class="profile-pic"><img class="profile-pic" src="https://i.imgur.com/8opuQWs.png" alt="Your Profile Picture">
+</div>
+        <div class="name">Jack Sampson</div>
+        <div class="about">look at my socials bruh</div>
+    </div>
+    <div class="socials">
+        <a href="https://www.instagram.com/jack.sampson10/" onmouseover="playSound()">
+            <img src="https://logos-world.net/wp-content/uploads/2020/04/Instagram-Emblem.png" alt="Instagram">
+        </a>
+        <a href="https://x.com/DRAGaming10" onmouseover="playSound()">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/X-Logo.jpg" alt="X">
+        </a>
+         <a href="https://www.tiktok.com/@theavgeekcentral" class="git" onmouseover="playSound()">
+            <img src="https://banner2.cleanpng.com/20231123/xjc/transparent-tiktok-logo-black-and-white-logo-tiktok-app-minima-minimalist-black-and-white-tiktok-app-1711004158896.webp" alt="X">
+        </a>
+        <a href="https://github.com/dralexander0805" class="git" onmouseover="playSound()">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        </a>
+    </div>
+    <script>
+        const hoverSound = document.getElementById('hoverSound');
+        function playSound() {
+            hoverSound.pause();
+            hoverSound.currentTime = 0;
+            hoverSound.play();
+        }
+        gsap.from(".profile-pic", { opacity: 0, scale: 0, duration: 1, ease: "bounce.out" });
+        gsap.from(".name", { opacity: 0, y: -50, duration: 1, delay: 0.5 });
+        gsap.from(".about", { opacity: 0, y: 50, duration: 1, delay: 1 });
+        gsap.from(".socials a", { opacity: 0, stagger: 0.3, duration: 1, delay: 1.5 });
+    </script>
+</body>
+</html>
